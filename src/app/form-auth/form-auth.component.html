@@ -1,0 +1,51 @@
+<form  
+    [formGroup]="authForm"
+    class="flex flex-col gap-4"
+    (submit)="validate()"
+>
+    <label>Email :</label>
+    <input
+        type="text" 
+        id ="email"
+        class="shadow-md p-3"
+        formControlName="email"
+        placeholder="email"
+        required=""
+    />
+    <div
+    *ngIf="emailData?.invalid && (emailData?.dirty || emailData?.touched)"
+    class="text-red-300"
+  >
+    <div *ngIf="emailData?.errors?.['required']">Email is required.</div>
+
+    <div *ngIf="emailData?.errors?.['email']">
+      Assurez vous que l'email est valide
+    </div>
+  </div>
+  <label>Password :</label>
+  <input
+      type="password" 
+      id ="password"
+      class="shadow-md p-3"
+      formControlName="password"
+      placeholder="empasswordail"
+      required
+  />
+  <div
+      *ngIf="
+        passwordData?.invalid && (passwordData?.dirty || passwordData?.touched)
+      "
+      class="text-red-300"
+    >
+      <div *ngIf="passwordData?.errors?.['required']">
+        Password is required.
+      </div>
+      <div *ngIf="passwordData?.errors?.['minlength']">
+        Password must be at least 4 characters long.
+      </div>
+    </div>
+    <button type="submit" class="bg-yellow-400 shadow py-2 px-2 rounded mt-4">
+      Login
+    </button>
+  </form>
+  

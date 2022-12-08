@@ -1,0 +1,24 @@
+<div class="mahi_holder">
+    <div class="container">
+        <div class="row bg_3">
+            <h2 [ngStyle]="{'font-family': fonts.value+'px'}" [ngStyle]="{'font-size': taille+'px'}"
+                [style.background-color]="color"><i>Mini word</i></h2>
+            <div class="col-3 input-effect">
+                <input [(ngModel)]="color" class="effect-16" type="text" placeholder="">
+                <label>Couleur</label>
+                <span class="focus-border"></span>
+            </div>
+            <div class="col-3 input-effect">
+                <input appCustomDirective [(ngModel)]="taille" class="effect-17" type="number" placeholder="">
+                <label>Taille</label>
+                <span class="focus-border"></span>
+            </div>
+            <div class="col-3 input-effect">
+                <select #fonts (change)="onSelected(fonts.value)" class="effect-18" name="pets" id="pet-select">
+                    <option value="">--Choisir une police--</option>
+                    <option *ngFor="let police of polices" value="{{ police}}">{{police}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
